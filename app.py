@@ -6,7 +6,10 @@ app = Flask(__name__)
 def hello_world():
     return render_template("index.html")
 
-
+@app.route("/<name>")
+def name(name):
+    name=name.capitalize()
+    return render_template("name.html",name=name,image=name+".jpg")
 @app.route("/abc")
 def abc():
     return render_template("abc.html")
